@@ -1,0 +1,30 @@
+a2dp_source:
+  id: bt_source
+  name: ESPHome Speaker
+  remote_name: Living Room Speaker
+  pin: "1234"
+  reconnect_interval: 20s
+  suspend_timeout: 5s
+  on_connect:
+    - logger.log: Bluetooth speaker connected
+  on_disconnect:
+    - logger.log: Bluetooth speaker disconnected
+
+speaker:
+  - platform: a2dp_source
+    id: bt_speaker
+    buffer_duration: 200ms
+
+button:
+  - platform: template
+    name: Bluetooth connect
+    on_press:
+      - a2dp_source.connect: bt_source
+  - platform: template
+    name: Bluetooth disconnect
+    on_press:
+      - if:
+          condition:
+            a2dp_source.is_connected: bt_source
+          then:
+            - a2dp_source.disconnect: bt_source

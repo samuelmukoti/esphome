@@ -1,0 +1,7 @@
+a2dp_source:
+  mac_address: 01:23:45:67:89:AB
+  auto_connect: false
+
+speaker:
+  - platform: a2dp_source
+    num_channels: 1

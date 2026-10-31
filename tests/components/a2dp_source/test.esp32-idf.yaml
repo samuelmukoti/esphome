@@ -1,0 +1,2 @@
+packages:
+  a2dp_source: !include common.yaml
