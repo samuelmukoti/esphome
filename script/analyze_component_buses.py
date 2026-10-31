@@ -80,6 +80,7 @@ ISOLATED_SIGNATURE_PREFIX = "isolated_"
 # These have known build issues that prevent grouping
 # NOTE: This should be kept in sync with both test_build_components and split_components_for_ci.py
 ISOLATED_COMPONENTS = {
+    "a2dp_source": "Runs the Bluetooth controller in Classic-only mode, so it conflicts with esp32_ble used by many components",
     "animation": "Has display lambda in common.yaml that requires existing display platform - breaks when merged without display",
     "cdc_acm_uart": "Depends on tinyusb which conflicts with usb_host",
     "esphome": "Defines devices/areas in esphome: section that are referenced in other sections - breaks when merged",

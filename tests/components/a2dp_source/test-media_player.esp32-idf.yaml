@@ -1,0 +1,16 @@
+packages:
+  a2dp_source: !include common.yaml
+
+wifi:
+  ap:
+
+psram:
+  mode: quad
+
+media_player:
+  - platform: speaker
+    id: bt_media_player
+    name: Bluetooth Media Player
+    announcement_pipeline:
+      speaker: bt_speaker
+      format: FLAC
